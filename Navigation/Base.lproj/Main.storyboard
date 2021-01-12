@@ -13,7 +13,11 @@
         <scene sceneID="bRX-aC-Cpi">
             <objects>
                 <viewController id="Ca1-kw-dKJ" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+<<<<<<< HEAD
                     <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3" customClass="ProfileHeaderView" customModule="Navigation" customModuleProvider="target">
+=======
+                    <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3">
+>>>>>>> cdcbde717467804a1e5054b15c569af2e9d7a02e
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
