@@ -30,9 +30,13 @@ class ProfileViewController: UIViewController {
         header.avatarImage.frame = CGRect(x: 16, y: 84, width: 100, height: 100)
         
         //FIX ME
-//        header.titleLabel.frame = CGRect(x: view.center.x, y: 100 , width: 100, height: 20)
+        header.titleLabel.frame = CGRect(x: header.avatarImage.frame.maxX + 16, y: header.avatarImage.frame.origin.y + 27 - 16, width: header.titleLabel.intrinsicContentSize.width, height: header.titleLabel.intrinsicContentSize.height)
+        
         header.showButton.frame = CGRect(x: header.avatarImage.frame.origin.x, y: header.avatarImage.frame.width + 100, width: view.frame.width - 32, height: 50)
-        view.backgroundColor = .lightGray
+        
+        header.statusLabel.frame = CGRect(x: header.titleLabel.frame.origin.x, y: header.showButton.frame.origin.y - 34 - header.statusLabel.intrinsicContentSize.height, width: header.statusLabel.intrinsicContentSize.width, height: header.statusLabel.intrinsicContentSize.height)
+        
+            view.backgroundColor = .lightGray
         self.view.addSubview(header)
     }
     

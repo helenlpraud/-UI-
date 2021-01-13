@@ -24,7 +24,6 @@ class ProfileHeaderView: UIView {
         label.text = "В ожидании чуда.."
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
-        label.backgroundColor = .blue
         return label
     }()
     
