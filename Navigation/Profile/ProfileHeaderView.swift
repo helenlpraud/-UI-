@@ -32,20 +32,39 @@ class ProfileHeaderView: UIView {
         button.setTitle("Кнопка", for: .normal)
         button.backgroundColor = .blue
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 4
-        button.layer.shadowOffset = CGSize(width: 4,height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0)
-        button.layer.shadowOpacity = 0.7
         return button
+    }()
+    
+    let layerButton: CALayer = {
+        let layer = CALayer()
+        layer.contentsGravity = .center
+        layer.magnificationFilter = .linear
+        layer.cornerRadius = 4
+        layer.shadowOffset = CGSize(width: 4,height: 4)
+        layer.shadowRadius = 4
+        layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0)
+        layer.shadowOpacity = 0.7
+        return layer
     }()
     
     let avatarImage: UIImageView = {
         let avatar = UIImageView()
-        avatar.image = UIImage(named: "avatar")
-        avatar.layer.borderWidth = 3
-        avatar.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 0)
+        avatar.layer.cornerRadius = 50.0
         return avatar
+    }()
+    
+    let layerImage: CALayer = {
+        let layer = CALayer()
+        layer.contentsGravity = .resize
+        layer.masksToBounds = true;
+        layer.contents = UIImage(named: "avatar")?.cgImage
+        layer.magnificationFilter = .linear
+
+        layer.cornerRadius = 50.0
+        layer.borderWidth = 3.0
+        layer.borderColor = UIColor.white.cgColor
+        
+        return layer
     }()
     
     func addSubview() {
@@ -55,16 +74,22 @@ class ProfileHeaderView: UIView {
         addSubview(avatarImage)
     }
     
+    func addSubLayer() {
+        showButton.layer.addSublayer(layerButton)
+        avatarImage.layer.addSublayer(layerImage)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview()
+        addSubLayer()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     
         addSubview()
-    
+        addSubLayer()
 }
 }
