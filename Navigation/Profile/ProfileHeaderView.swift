@@ -32,20 +32,18 @@ class ProfileHeaderView: UIView {
         button.setTitle("Кнопка", for: .normal)
         button.backgroundColor = .blue
         button.setTitleColor(.white, for: .normal)
+        
+        button.layer.cornerRadius = 4
+        button.layer.borderColor = UIColor.black.cgColor
+        
+        button.layer.shadowRadius = 4
+        button.layer.shadowOffset = CGSize(width: 4,height: 4)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+        
         return button
     }()
     
-    let layerButton: CALayer = {
-        let layer = CALayer()
-        layer.contentsGravity = .center
-        layer.magnificationFilter = .linear
-        layer.cornerRadius = 4
-        layer.shadowOffset = CGSize(width: 4,height: 4)
-        layer.shadowRadius = 4
-        layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0)
-        layer.shadowOpacity = 0.7
-        return layer
-    }()
     
     let avatarImage: UIImageView = {
         let avatar = UIImageView()
@@ -75,7 +73,6 @@ class ProfileHeaderView: UIView {
     }
     
     func addSubLayer() {
-        showButton.layer.addSublayer(layerButton)
         avatarImage.layer.addSublayer(layerImage)
     }
     
