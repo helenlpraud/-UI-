@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .lightGray
-        view.addSubview(header)
+        self.view.addSubview(header)
         
         header.avatarImage.frame = CGRect(x: 16, y: 84, width: 100, height: 100)
         
@@ -37,9 +37,7 @@ class ProfileViewController: UIViewController {
         header.statusLabel.frame = CGRect(x: header.titleLabel.frame.origin.x, y: header.showButton.frame.origin.y - 34 - header.statusLabel.intrinsicContentSize.height, width: header.statusLabel.intrinsicContentSize.width, height: header.statusLabel.intrinsicContentSize.height)
         
         header.layerImage.frame = header.avatarImage.bounds
-        
-        view.backgroundColor = .lightGray
-        self.view.addSubview(header)
+
     }
     
 }

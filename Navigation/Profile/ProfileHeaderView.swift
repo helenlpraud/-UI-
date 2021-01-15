@@ -65,6 +65,11 @@ class ProfileHeaderView: UIView {
         return layer
     }()
     
+    let text: UITextField = {
+        let text = UITextField()
+        return text
+    }()
+    
     func addSubview() {
         addSubview(titleLabel)
         addSubview(statusLabel)
