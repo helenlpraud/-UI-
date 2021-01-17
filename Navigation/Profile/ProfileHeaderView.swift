@@ -29,7 +29,7 @@ class ProfileHeaderView: UIView {
     
     let showButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Кнопка", for: .normal)
+        button.setTitle("Установить новый статус", for: .normal)
         button.backgroundColor = .blue
         button.setTitleColor(.white, for: .normal)
         
@@ -67,6 +67,14 @@ class ProfileHeaderView: UIView {
     
     let text: UITextField = {
         let text = UITextField()
+        text.backgroundColor = .white
+        text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        text.textColor = .black
+        
+        text.layer.cornerRadius = 12
+        text.layer.borderWidth = 1
+        text.layer.borderColor = UIColor.black.cgColor
+        text.layer.masksToBounds = true;
         return text
     }()
     
@@ -75,6 +83,7 @@ class ProfileHeaderView: UIView {
         addSubview(statusLabel)
         addSubview(showButton)
         addSubview(avatarImage)
+        addSubview(text)
     }
     
     func addSubLayer() {
