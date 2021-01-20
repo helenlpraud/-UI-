@@ -40,7 +40,6 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOffset = CGSize(width: 4,height: 4)
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
-        
         return button
     }()
     
@@ -61,7 +60,6 @@ class ProfileHeaderView: UIView {
         layer.cornerRadius = 50.0
         layer.borderWidth = 3.0
         layer.borderColor = UIColor.white.cgColor
-        
         return layer
     }()
     
@@ -88,6 +86,35 @@ class ProfileHeaderView: UIView {
     
     func addSubLayer() {
         avatarImage.layer.addSublayer(layerImage)
+    }
+    
+    override func layoutSubviews() {
+        avatarImage.frame = CGRect(x: 16,
+                                   y: super.safeAreaInsets.top + 16,
+                                   width: 100,
+                                   height: 100)
+        
+        titleLabel.frame = CGRect(x: avatarImage.frame.maxX + 16,
+                                  y: super.safeAreaInsets.top + 27,
+                                  width: titleLabel.intrinsicContentSize.width,
+                                  height: titleLabel.intrinsicContentSize.height)
+        
+        showButton.frame = CGRect(x: avatarImage.frame.origin.x,
+                                  y: avatarImage.frame.maxY + 16 + 16 + 5,
+                                  width: super.frame.width - 32,
+                                  height: 50)
+        
+        statusLabel.frame = CGRect(x: titleLabel.frame.origin.x,
+                                   y: avatarImage.frame.maxY - 32,
+                                   width: showButton.frame.width / 2 + 28,
+                                   height: statusLabel.intrinsicContentSize.height)
+        
+        layerImage.frame = avatarImage.bounds
+        
+        text.frame = CGRect(x: statusLabel.frame.origin.x,
+                            y: statusLabel.frame.maxY + 5,
+                            width: showButton.frame.width / 2 + 28,
+                            height: 40)
     }
     
     override init(frame: CGRect) {
